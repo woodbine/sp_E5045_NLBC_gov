@@ -26,9 +26,10 @@ soup = BeautifulSoup(html)
 block = soup.find('div',{'class':'pattern-add'})
 
 links = block.findAll('a', href=True)
-print links
 for link in links:
 	url = "http://www.newham.gov.uk" + link['href']
+	print url
+	
 	if '.csv' in url and 'payments' in url:
 		title = link.contents[0]
 		print title
