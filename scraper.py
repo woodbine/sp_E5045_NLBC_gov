@@ -33,7 +33,7 @@ for link in links:
   		# create the right strings for the new filename
   		if title == '':
   			print 'no title found'
-  		else
+  		else:
 	  		csvYr = title.split(' ')[-2]
 	  		csvMth = title.split(' ')[-3][:3]
 	  		csvMth = csvMth.upper()
