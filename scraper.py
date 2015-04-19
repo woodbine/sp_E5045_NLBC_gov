@@ -28,7 +28,7 @@ block = soup.find('div',{'class':'pattern-add'})
 links = block.findAll('a', href=True)
 for link in links:
 	url = "http://www.newham.gov.uk" + link['href']
-	if '.csv' in url and 'ayments' in url:
+	if '.csv' in url and 'Suppliers' in url:
 		title = link.contents[0]
 		print title
 		if 'supplier' in title:
