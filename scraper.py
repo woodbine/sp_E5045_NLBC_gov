@@ -32,6 +32,7 @@ for link in links:
 		title = link.text.encode('utf8')
   		# create the right strings for the new filename
   		print "title: " + title
+  		'''
   		csvYr = title.split(' ')[-2]
   		csvMth = title.split(' ')[-3][:3]
   		csvMth = csvMth.upper()
@@ -40,4 +41,4 @@ for link in links:
   		todays_date = str(datetime.now())
   		#scraperwiki.sqlite.save(unique_keys=['l'], data={"l": url, "f": filename, "d": todays_date })
   		print filename
-	
+		'''
