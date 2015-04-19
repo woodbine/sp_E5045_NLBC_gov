@@ -29,18 +29,17 @@ links = block.findAll('a', href=True)
 for link in links:
 	url = "http://www.newham.gov.uk" + link['href']
 	if '.csv' in url and 'Suppliers' in url:
-		title = link.text.encode('utf8')
+		title = link.text.encode('ascii')
   		# create the right strings for the new filename
-  		print "title: " + title
   		if title == '':
   			print 'no title found'
-  		'''
-  		csvYr = title.split(' ')[-2]
-  		csvMth = title.split(' ')[-3][:3]
-  		csvMth = csvMth.upper()
-  		csvMth = convert_mth_strings(csvMth);
-  		filename = entity_id + "_" + csvYr + "_" + csvMth + ".csv"
-  		todays_date = str(datetime.now())
-  		#scraperwiki.sqlite.save(unique_keys=['l'], data={"l": url, "f": filename, "d": todays_date })
-  		print filename
-		'''
+  		else
+	  		csvYr = title.split(' ')[-2]
+	  		csvMth = title.split(' ')[-3][:3]
+	  		csvMth = csvMth.upper()
+	  		csvMth = convert_mth_strings(csvMth);
+	  		filename = entity_id + "_" + csvYr + "_" + csvMth + ".csv"
+	  		todays_date = str(datetime.now())
+	  		#scraperwiki.sqlite.save(unique_keys=['l'], data={"l": url, "f": filename, "d": todays_date })
+	  		print filename
+			
