@@ -21,10 +21,11 @@ def convert_mth_strings ( mth_string ):
 # pull down the content from the webpage
 html = urllib2.urlopen(url)
 soup = BeautifulSoup(html)
-print soup
 
 # find all entries with the required class
 block = soup.find('div',{'class':'pattern-add'})
+print block
+
 links = block.findAll('a', href=True)
 for link in links:
 	url = "http://www.newham.gov.uk" + link['href']
