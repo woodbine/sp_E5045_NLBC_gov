@@ -24,9 +24,9 @@ soup = BeautifulSoup(html)
 
 # find all entries with the required class
 block = soup.find('div',{'class':'pattern-add'})
-print block
 
 links = block.findAll('a', href=True)
+print links
 for link in links:
 	url = "http://www.newham.gov.uk" + link['href']
 	if '.csv' in url and 'payments' in url:
