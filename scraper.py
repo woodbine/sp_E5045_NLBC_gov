@@ -23,22 +23,23 @@ html = urllib2.urlopen(url)
 soup = BeautifulSoup(html)
 
 # find all entries with the required class
-block = soup.find('div',{'class':'holder'})
-links = block.findAll('a', href=True)
+blocks = soup.findAll('div',{'class':'holder'})
 
-for link in links:
-	url = "http://www.newham.gov.uk" + link['href']
-	if '.csv' in url and 'payments' in url:
-		title = link.contents[0]
-		print title
-		if 'supplier' in title:
-	  		# create the right strings for the new filename
-	  		csvYr = title.split(' ')[-2]
-	  		csvMth = title.split(' ')[-3][:3]
-	  		csvMth = csvMth.upper()
-	  		csvMth = convert_mth_strings(csvMth);
-	  		filename = entity_id + "_" + csvYr + "_" + csvMth + ".csv"
-	  		todays_date = str(datetime.now())
-	  		scraperwiki.sqlite.save(unique_keys=['l'], data={"l": url, "f": filename, "d": todays_date })
-	  		print filename
-
+for block in blocks:
+	links = block.findAll('a', href=True)
+	for link in links:
+		url = "http://www.newham.gov.uk" + link['href']
+		if '.csv' in url and 'payments' in url:
+			title = link.contents[0]
+			print title
+			if 'supplier' in title:
+		  		# create the right strings for the new filename
+		  		csvYr = title.split(' ')[-2]
+		  		csvMth = title.split(' ')[-3][:3]
+		  		csvMth = csvMth.upper()
+		  		csvMth = convert_mth_strings(csvMth);
+		  		filename = entity_id + "_" + csvYr + "_" + csvMth + ".csv"
+		  		todays_date = str(datetime.now())
+		  		scraperwiki.sqlite.save(unique_keys=['l'], data={"l": url, "f": filename, "d": todays_date })
+		  		print filename
+	
