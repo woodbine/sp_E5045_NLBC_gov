@@ -31,7 +31,7 @@ for link in links:
 	if '.csv' in url and 'Suppliers' in url:
 		title = link.text.encode('ascii', 'ignore')
   		# create the right strings for the new filename
-  		print "title: " + title[0:12]
+  		print "title: " + title[0:22]
   		csvYr = title.split(' ')[-2]
   		csvMth = title.split(' ')[-3][:3]
   		csvMth = csvMth.upper()
