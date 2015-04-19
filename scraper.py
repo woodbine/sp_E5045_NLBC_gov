@@ -28,6 +28,7 @@ block = soup.find('div',{'class':'pattern-add'})
 links = block.findAll('a', href=True)
 for link in links:
 	url = "http://www.newham.gov.uk" + link['href']
+	url = url.replace(' ','%20')
 	if '.csv' in url and 'Suppliers' in url:
 		title = link.text.encode('ascii', 'ignore')
   		# create the right strings for the new filename
