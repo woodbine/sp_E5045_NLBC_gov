@@ -23,11 +23,12 @@ html = urllib2.urlopen(url)
 soup = BeautifulSoup(html)
 
 # find all entries with the required class
+block = soup.find('div',{'class':'holder'})
 links = soup.findAll('a', href=True)
 
 for link in links:
 	url = "http://www.newham.gov.uk" + link['href']
-	if '.csv' in url:
+	if '.csv' in url and 'payments' in url:
 		title = link.contents[0]
 		print title
 		if 'supplier' in title:
