@@ -30,7 +30,7 @@ for link in links:
 	url = "http://www.newham.gov.uk" + link['href']
 	if '.csv' in url and 'Suppliers' in url:
 		title = link.contents[0]
-		if title.contents[0] == None:
+		if title.contents == None:
 			print 'no need to unwrap'
 		else:
 			title.unwrap()
