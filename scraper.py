@@ -32,7 +32,8 @@ for link in links:
 		title = link.contents[0]
 		if 'span' in title:
 			title = title.unwrap() # get rid of any tags still in the title
-			
+		print title
+		
   		# create the right strings for the new filename
   		csvYr = title.split(' ')[-2]
   		csvMth = title.split(' ')[-3][:3]
