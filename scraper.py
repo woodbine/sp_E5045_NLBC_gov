@@ -23,13 +23,10 @@ html = urllib2.urlopen(url)
 soup = BeautifulSoup(html)
 
 # find all entries with the required class
-block = soup.find('div',{'class':'holder'}) #  find docs table
-links = block.findAll('a', href=True)
-print links
+links = soup.findAll('a', href=True)
 
 for link in links:
 	url = "http://www.newham.gov.uk" + link['href']
-	print url
 	if '.csv' in url:
 		title = link.contents[0]
 		print title
