@@ -29,12 +29,9 @@ links = block.findAll('a', href=True)
 for link in links:
 	url = "http://www.newham.gov.uk" + link['href']
 	if '.csv' in url and 'Suppliers' in url:
-		title = link.contents[0]
-		if title.contents == None:
-			print 'no need to unwrap'
-		else:
-			title.unwrap()
-			
+		title = link.text
+		print title
+		
   		# create the right strings for the new filename
   		csvYr = title.split(' ')[-2]
   		csvMth = title.split(' ')[-3][:3]
