@@ -32,7 +32,7 @@ for link in links:
 		title = link.text.encode('utf8')
   		# create the right strings for the new filename
   		print "title: " + title
-  		if title == None:
+  		if title == '':
   			print 'no title found'
   		'''
   		csvYr = title.split(' ')[-2]
