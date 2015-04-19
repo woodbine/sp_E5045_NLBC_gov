@@ -30,8 +30,6 @@ for link in links:
 	url = "http://www.newham.gov.uk" + link['href']
 	if '.csv' in url and 'Suppliers' in url:
 		title = link.contents[0]
-		if 'span' in title:
-			title = title.unwrap() # get rid of any tags still in the title
 		print title
 		
   		# create the right strings for the new filename
