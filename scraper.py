@@ -29,7 +29,7 @@ links = block.findAll('a', href=True)
 for link in links:
 	url = "http://www.newham.gov.uk" + link['href']
 	if '.csv' in url and 'Suppliers' in url:
-		title = link.contents[0]
+		title = link.contents[0].getText()
 		print title
 		if 'supplier' in title:
 	  		# create the right strings for the new filename
