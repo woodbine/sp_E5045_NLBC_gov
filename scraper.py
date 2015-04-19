@@ -24,7 +24,7 @@ soup = BeautifulSoup(html)
 
 # find all entries with the required class
 block = soup.find('div',{'class':'holder'}) #  find docs table
-links = table.findAll('a', href=True)
+links = block.findAll('a', href=True)
 
 for link in links:
 	url = "http://www.newham.gov.uk" + link['href']
