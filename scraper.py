@@ -35,7 +35,6 @@ for link in links:
   		if title == '':
   			print 'no title found'
   		else:
-  			print url
 	  		csvYr = title.split(' ')[-2]
 	  		csvMth = title.split(' ')[-3][:3]
 	  		csvMth = csvMth.upper()
