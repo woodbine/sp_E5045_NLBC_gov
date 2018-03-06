@@ -112,6 +112,9 @@ for link in links:
         else:
             csvYr = title.split(' ')[-2]
             csvMth = title.split(' ')[-3][:3]
+            if 'sup' in csvMth:
+                csvMth = csvYr[:3]
+                csvYr = csvYr.split()[0][-4:]
             csvMth = convert_mth_strings(csvMth.upper())
             todays_date = str(datetime.now())
             data.append([csvYr, csvMth, url])
@@ -137,4 +140,3 @@ if errors > 0:
 
 
 #### EOF
-
